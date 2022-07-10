@@ -37,7 +37,13 @@ public class PDFConverter {
 
 	//Load the source file
 	System.out.println("Loading input file....");
-	Document document = new Document(filePathString);
+	Document document = new Document();
+	try {
+	  document = new Document(filePathString);
+	}catch (Exception e){
+	  System.out.println("Could not load file....\nPossible reason(s): File does not exist | Typo error in file name");
+	  return;
+	}
 	System.out.println("File load complete.....");
 
 
